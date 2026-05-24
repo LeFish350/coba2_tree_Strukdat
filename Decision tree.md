@@ -44,24 +44,24 @@ graph TD;
 ```
 
 **Model Pohon B: Modifikasi *Random Forest (Multiple Ensemble Tree Voting)***
-Setiap Decision Tree hanya dibuatkan versi spesialis subset dataset acak mini. Bila mereka disatukan menjadi fungsi hutan untuk pencarian output, ia mengkalkulasi Nilai Aggregasi Sub Cabang terluar, membersihkan anomali Outlier Tree-pertama tadi! 
+Setiap Decision Tree hanya dibuatkan versi spesialis subset dataset acak mini. Bila mereka disatukan menjadi fungsi hutan untuk pencarian output, ia mengkalkulasi Nilai Aggregasi Sub Cabang terluar, membersihkan anomali Outlier Tree-pertama tadi!
 
 ```mermaid
 graph TD;
-    Inp(Input Moduler Array Dataset Terpecah ! ) --> T1[DT Model No.1 ];
-    Inp --> T2[DT Model No.2 ];
-    Inp --> Tn[DT Model Ke... N.];
+    Inp("Input Moduler Array Dataset Terpecah") --> T1["DT Model No.1"];
+    Inp --> T2["DT Model No.2"];
+    Inp --> Tn["DT Model Ke... N."];
 
-    T1 -. Cek Rule.. .-> V1(Arah Result Sub: 'GAGAL' / Ter-overfit!):::fail
-    T2 -. Prediksi Berbeda.. .-> V2(Arah Result: 'SUKSES');
-    Tn -. Sub Pola Minor Acak. .-> Vn(Arah Result: 'SUKSES');
+    T1 -.->|"Cek Rute"| V1("Arah Result Sub: GAGAL / Overfit!"):::fail;
+    T2 -.->|"Prediksi Berbeda"| V2("Arah Result: SUKSES");
+    Tn -.->|"Sub Pola Acak Minor"| Vn("Arah Result: SUKSES");
 
-    V1 -. Kumpul Aggregate Hitungan -> Hasil((Aggregating System Major-VOTE !: = Tiga suara Dominan >> Menuju Putusan Valid Klasifikasi >> ' SUKSES ' !)):::ok
-    V2 -. Kumpul Aggregate..-> Hasil;
-    Vn -. Kumpul Aggregate ..-> Hasil;
+    V1 -.->|"Aggregate Kumpul"| Hasil("Aggregating Major-VOTE!: Tiga suara Dominan >> Prediksi Valid >> 'SUKSES'");
+    V2 -.->|"Aggregate Kumpul"| Hasil;
+    Vn -.->|"Aggregate Kumpul"| Hasil:::ok;
 
-    classDef fail fill:#ffcccc,stroke:#f00;
-    classDef ok fill:#b6d7a8,stroke:#38761d,color:#000;
+    classDef fail fill:#ffcccc,stroke:#f00,stroke-width:2px;
+    classDef ok fill:#b6d7a8,stroke:#38761d,color:#000,stroke-width:2px;
 ```
 
 ### 4. Aplikasi / Implentasinya Pada Dunia Digital Cloud 
