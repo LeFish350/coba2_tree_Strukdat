@@ -243,8 +243,6 @@ class BPlusTree<K extends Comparable<K>> {
 Sebagai pendamping pembuktian teoretis pada matriks limit algoritma (Poin 8), program *runner* ini mengeksekusi kedua arsitektur menggunakan skenario masif untuk membuktikan performa *B+ Tree Linked Horizontal* dalam menyelesaikan _bottleneck traversal Range Scan_.
 
 **A. Kode Evaluasi / Kelas Runner Main (`DatabaseSimulatorApp.java`) :**
-*(Tempelkan kelas ini di *file* yang sama dengan kelas Struktur Object Poin 10 sebelumnya).*
-
 ```java
 // ==========================================
 // 3. MAIN EVALUATOR CLASS - RDBMS Benchmarking System
